@@ -51,6 +51,12 @@ python scripts\prepare_ppocrv4_assets.py --profile all --source-dir E:\tmp\paddl
 
 If `paddle2onnx` fails on Windows with a native DLL load error, use a Python version and Paddle/Paddle2ONNX combination supported by the current Paddle2ONNX wheel, run the script from that activated environment, or provide preconverted official ONNX folders through `--source-dir`.
 
+On Windows, `paddle2onnx==1.3.1` is currently a practical fallback for the official PP-OCRv4 `inference.pdmodel` packages used by the mobile profiles:
+
+```powershell
+python -m pip install --upgrade "paddle2onnx==1.3.1"
+```
+
 ## Build
 
 The Gradle build validates the required `inference.onnx` and `inference.yml` files before merging assets. If the models are missing, the build fails with the matching `prepare_ppocrv4_assets.py --profile ...` command instead of producing an APK that returns empty OCR results.

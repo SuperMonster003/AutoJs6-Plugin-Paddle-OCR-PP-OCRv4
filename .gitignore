@@ -35,6 +35,8 @@ __pycache__/
 /libs/**/build/
 /app/release/
 /app/releases/
+/app/src/*/assets/models/
+/app/src/main/assets/models/
 
 /local.properties
 /sign.properties

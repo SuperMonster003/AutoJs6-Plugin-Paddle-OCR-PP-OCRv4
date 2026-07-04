@@ -240,12 +240,12 @@ androidComponents {
             val validateAssets = tasks.register("validate${variantName}PpOcrV4Assets") {
                 group = "verification"
                 description = "Validates PP-OCRv4 model assets for the ${variant.name} variant."
-                inputs.files(requiredAssetAlternatives.flatten().map { layout.projectDirectory.file(it) })
+                inputs.files(requiredAssetAlternatives.flatten().map { rootProject.layout.projectDirectory.file(it) })
 
                 doLast {
                     val missing = requiredAssetAlternatives.filter { alternatives ->
                         alternatives.none { assetPath ->
-                            layout.projectDirectory.file(assetPath).asFile.let { it.isFile && it.length() > 0L }
+                            rootProject.layout.projectDirectory.file(assetPath).asFile.let { it.isFile && it.length() > 0L }
                         }
                     }
                     if (missing.isNotEmpty()) {
