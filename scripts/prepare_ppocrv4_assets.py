@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
 
 import argparse
+import os
 import shutil
 import subprocess
+import sys
 import tarfile
 import urllib.request
 from pathlib import Path
@@ -33,6 +35,10 @@ PROFILES = {
     "server": {
         "det": "PP-OCRv4_server_det",
         "rec": "PP-OCRv4_server_rec",
+        "det_url": f"{PADDLEOCR_V4_BASE}/chinese/ch_PP-OCRv4_det_server_infer.tar",
+        "rec_url": f"{PADDLEOCR_V4_BASE}/chinese/ch_PP-OCRv4_rec_server_infer.tar",
+        "det_source_names": ("PP-OCRv4_server_det", "ch_PP-OCRv4_det_server"),
+        "rec_source_names": ("PP-OCRv4_server_rec", "ch_PP-OCRv4_rec_server"),
         "det_asset": "ppocrv4-server",
         "rec_asset": "ppocrv4-server",
         "det_source_set": "server",
@@ -65,10 +71,10 @@ SOURCE_SET_ASSET_ROOTS = {
 def download(url: str, target: Path) -> None:
     target.parent.mkdir(parents=True, exist_ok=True)
     if target.exists() and target.stat().st_size > 0:
-        print(f"skip: {target}")
+        print(f"skip: {target}", flush=True)
         return
 
-    print(f"download: {url}")
+    print(f"download: {url}", flush=True)
     urllib.request.urlretrieve(url, target)
 
 
@@ -168,7 +174,7 @@ def prepare_model_source(
 ) -> Path:
     local = find_local_model(source_dir, source_names or (model_name,))
     if local is not None:
-        print(f"use local model: {local}")
+        print(f"use local model: {local}", flush=True)
         if local.is_file() and local.suffix == ".tar":
             return find_model_dir(safe_extract_tar(local, cache_dir / local.stem))
         if local.is_dir():
@@ -192,7 +198,7 @@ def copy_onnx_model(onnx_dir: Path, dst_dir: Path) -> bool:
 
 
 def run_command(cmd: list[str]) -> None:
-    print("run:", " ".join(cmd))
+    print("run:", " ".join(cmd), flush=True)
     subprocess.check_call(cmd)
 
 
@@ -200,34 +206,99 @@ def command_exists(name: str) -> bool:
     return shutil.which(name) is not None
 
 
-def convert_paddle_to_onnx(paddle_model_dir: Path, onnx_output_dir: Path) -> Path:
+def venv_python(venv_dir: Path) -> Path:
+    if os.name == "nt":
+        return venv_dir / "Scripts" / "python.exe"
+    return venv_dir / "bin" / "python"
+
+
+def venv_command(venv_dir: Path, command: str) -> Path:
+    if os.name == "nt":
+        return venv_dir / "Scripts" / f"{command}.exe"
+    return venv_dir / "bin" / command
+
+
+def ensure_fallback_paddle2onnx(cache_root: Path) -> Path:
+    venv_dir = cache_root / "paddle2onnx-1.3.1-venv"
+    paddle2onnx = venv_command(venv_dir, "paddle2onnx")
+    if paddle2onnx.exists():
+        return paddle2onnx
+
+    python = venv_python(venv_dir)
+    print(f"prepare fallback converter: {venv_dir}", flush=True)
+    run_command([sys.executable, "-m", "venv", str(venv_dir)])
+    run_command([str(python), "-m", "pip", "install", "--upgrade", "pip", "setuptools"])
+    run_command([
+        str(python),
+        "-m",
+        "pip",
+        "install",
+        "paddlepaddle==3.2.1",
+        "paddle2onnx==1.3.1",
+    ])
+    return paddle2onnx
+
+
+def paddle2onnx_args(model_file: Path, params_file: Path | None, onnx_output_dir: Path) -> list[str]:
+    args = [
+        "--model_dir", str(model_file.parent),
+        "--model_filename", model_file.name,
+        "--save_file", str(onnx_output_dir / "inference.onnx"),
+        "--opset_version", "7",
+    ]
+    if params_file is not None:
+        args += ["--params_filename", params_file.name]
+    return args
+
+
+def try_paddle2onnx(
+    command_prefix: list[str],
+    model_file: Path,
+    params_file: Path | None,
+    onnx_output_dir: Path,
+) -> str | None:
+    if onnx_output_dir.exists():
+        shutil.rmtree(onnx_output_dir)
+    onnx_output_dir.mkdir(parents=True, exist_ok=True)
+
+    try:
+        run_command(command_prefix + paddle2onnx_args(model_file, params_file, onnx_output_dir))
+        if find_valid_onnx(onnx_output_dir) is not None:
+            return None
+        return "produced no non-empty ONNX model"
+    except Exception as exc:
+        return str(exc)
+
+
+def convert_paddle_to_onnx(paddle_model_dir: Path, onnx_output_dir: Path, cache_root: Path) -> Path:
     model_file = find_first(paddle_model_dir, ("inference.pdmodel", "inference.json", "__model__"))
     params_file = find_first(paddle_model_dir, ("inference.pdiparams",))
     if model_file is None:
         raise FileNotFoundError(f"Paddle model file not found under {paddle_model_dir}")
 
     errors: list[str] = []
+    fallback_tried = False
+
+    if os.name == "nt" and model_file.name == "inference.pdmodel":
+        fallback = ensure_fallback_paddle2onnx(cache_root)
+        fallback_tried = True
+        error = try_paddle2onnx([str(fallback)], model_file, params_file, onnx_output_dir)
+        if error is None:
+            return onnx_output_dir
+        errors.append(f"fallback paddle2onnx failed: {error}")
 
     if command_exists("paddle2onnx"):
-        if onnx_output_dir.exists():
-            shutil.rmtree(onnx_output_dir)
-        onnx_output_dir.mkdir(parents=True, exist_ok=True)
-        cmd = [
-            "paddle2onnx",
-            "--model_dir", str(model_file.parent),
-            "--model_filename", model_file.name,
-            "--save_file", str(onnx_output_dir / "inference.onnx"),
-            "--opset_version", "7",
-        ]
-        if params_file is not None:
-            cmd += ["--params_filename", params_file.name]
-        try:
-            run_command(cmd)
-            if find_valid_onnx(onnx_output_dir) is not None:
-                return onnx_output_dir
-            errors.append("paddle2onnx produced no non-empty ONNX model")
-        except Exception as exc:
-            errors.append(f"paddle2onnx failed: {exc}")
+        error = try_paddle2onnx(["paddle2onnx"], model_file, params_file, onnx_output_dir)
+        if error is None:
+            return onnx_output_dir
+        errors.append(f"paddle2onnx failed: {error}")
+
+    if not fallback_tried:
+        fallback = ensure_fallback_paddle2onnx(cache_root)
+        error = try_paddle2onnx([str(fallback)], model_file, params_file, onnx_output_dir)
+        if error is None:
+            return onnx_output_dir
+        errors.append(f"fallback paddle2onnx failed: {error}")
 
     if command_exists("paddlex"):
         if onnx_output_dir.exists():
@@ -266,20 +337,20 @@ def ensure_onnx_model(
 ) -> None:
     existing = dst_dir / "inference.onnx"
     if existing.exists() and existing.stat().st_size > 0:
-        print(f"skip existing onnx: {model_name} -> {dst_dir}")
+        print(f"skip existing onnx: {model_name} -> {dst_dir}", flush=True)
         return
     if existing.exists():
         existing.unlink()
 
     model_source = prepare_model_source(model_name, cache_dir, source_dir, model_url, source_names)
     if copy_onnx_model(model_source, dst_dir):
-        print(f"copied onnx: {model_name} -> {dst_dir}")
+        print(f"copied onnx: {model_name} -> {dst_dir}", flush=True)
         return
 
-    converted_dir = convert_paddle_to_onnx(model_source, cache_dir / f"{model_name}_onnx")
+    converted_dir = convert_paddle_to_onnx(model_source, cache_dir / f"{model_name}_onnx", cache_dir.parent)
     if not copy_onnx_model(converted_dir, dst_dir):
         raise FileNotFoundError(f"converted ONNX model not found under {converted_dir}")
-    print(f"converted: {model_name} -> {dst_dir}")
+    print(f"converted: {model_name} -> {dst_dir}", flush=True)
 
 
 def yaml_quote(value: str) -> str:
@@ -348,7 +419,7 @@ def prepare_one(
     chars = download_dict(spec["dict_url"], cache_dir / f"{profile}-dict.txt")
     write_android_inference_yml(chars, rec_dst / "inference.yml")
 
-    print(f"prepared: {profile}")
+    print(f"prepared: {profile}", flush=True)
 
 
 def main() -> None:

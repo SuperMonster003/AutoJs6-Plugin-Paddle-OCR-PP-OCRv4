@@ -49,9 +49,9 @@ Use local resources:
 python scripts\prepare_ppocrv4_assets.py --profile all --source-dir E:\tmp\paddle-ocr-pp-ocrv4
 ```
 
-If `paddle2onnx` fails on Windows with a native DLL load error, use a Python version and Paddle/Paddle2ONNX combination supported by the current Paddle2ONNX wheel, run the script from that activated environment, or provide preconverted official ONNX folders through `--source-dir`.
+If the active `paddle2onnx` fails on Windows with a native DLL load error, the script creates an ignored fallback converter environment under `.cache/ppocrv4/paddle2onnx-1.3.1-venv` and retries with `paddle2onnx==1.3.1`.
 
-On Windows, `paddle2onnx==1.3.1` is currently a practical fallback for the official PP-OCRv4 `inference.pdmodel` packages used by the mobile profiles:
+You can also set up the same fallback version in your own Python environment:
 
 ```powershell
 python -m pip install --upgrade "paddle2onnx==1.3.1"
