@@ -1,0 +1,197 @@
+<!--suppress HtmlDeprecatedAttribute, HttpUrlsUsage -->
+
+<div align="center">
+  <p>
+    <img src="https://github.com/SuperMonster003/AutoJs6-Plugin-Paddle-OCR-PP-OCRv4/blob/master/app/src/main/res/mipmap/ic_launcher.png?raw=true" alt="autojs6-plugin-paddle-ocr-pp-ocrv4-ic-launcher" border="0" width="128" />
+  </p>
+
+  <p>Плагин Paddle OCR PP-OCRv4 для распознавания текста на Android</p>
+
+  <p>
+    <a href="https://github.com/SuperMonster003/AutoJs6-Plugin-Paddle-OCR-PP-OCRv4/releases"><img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/SuperMonster003/AutoJs6-Plugin-Paddle-OCR-PP-OCRv4?label=Release"/></a>
+    <a href="https://github.com/SuperMonster003/AutoJs6-Plugin-Paddle-OCR-PP-OCRv4/issues"><img alt="GitHub closed issues" src="https://img.shields.io/github/issues/SuperMonster003/AutoJs6-Plugin-Paddle-OCR-PP-OCRv4?color=A24232&label=Issues"/></a>
+    <a href="https://github.com/SuperMonster003/AutoJs6-Plugin-Paddle-OCR-PP-OCRv4/commit/668bfc2f23256c89bbad49590c946a0d3efb9b74"><img alt="Created" src="https://img.shields.io/date/1783168887?color=2e7d32&label=Created"/></a>
+    <br>
+    <a href="https://developer.android.com/studio/archive"><img alt="Android Studio" src="https://img.shields.io/badge/Android%20Studio-2023.3+-B64FC8"/></a>
+    <a href="https://www.jetbrains.com/idea/download/other.html"><img alt="IntelliJ IDEA" src="https://img.shields.io/badge/IntelliJ%20IDEA-2023.3+-EE4677"/></a>
+    <a href="https://github.com/SuperMonster003/AutoJs6-Plugin-Paddle-OCR-PP-OCRv4/blob/master/LICENSE"><img alt="GitHub License" src="https://img.shields.io/github/license/SuperMonster003/AutoJs6-Plugin-Paddle-OCR-PP-OCRv4?color=534BAE&label=License"/></a>
+  </p>
+</div>
+
+******
+
+### Языки (Languages)
+
+******
+
+README.md доступен на следующих языках:
+
+- [简体中文 [zh-Hans]](https://github.com/SuperMonster003/AutoJs6-Plugin-Paddle-OCR-PP-OCRv4/blob/master/.readme/README-zh-Hans.md)
+- [繁體中文 (香港) [zh-Hant-HK]](https://github.com/SuperMonster003/AutoJs6-Plugin-Paddle-OCR-PP-OCRv4/blob/master/.readme/README-zh-Hant-HK.md)
+- [繁體中文 (台灣) [zh-Hant-TW]](https://github.com/SuperMonster003/AutoJs6-Plugin-Paddle-OCR-PP-OCRv4/blob/master/.readme/README-zh-Hant-TW.md)
+- [English [en]](https://github.com/SuperMonster003/AutoJs6-Plugin-Paddle-OCR-PP-OCRv4/blob/master/.readme/README-en.md)
+- [Français [fr]](https://github.com/SuperMonster003/AutoJs6-Plugin-Paddle-OCR-PP-OCRv4/blob/master/.readme/README-fr.md)
+- [Español [es]](https://github.com/SuperMonster003/AutoJs6-Plugin-Paddle-OCR-PP-OCRv4/blob/master/.readme/README-es.md)
+- [日本語 [ja]](https://github.com/SuperMonster003/AutoJs6-Plugin-Paddle-OCR-PP-OCRv4/blob/master/.readme/README-ja.md)
+- [한국어 [ko]](https://github.com/SuperMonster003/AutoJs6-Plugin-Paddle-OCR-PP-OCRv4/blob/master/.readme/README-ko.md)
+- Русский [ru] # текущий
+- [العربية [ar]](https://github.com/SuperMonster003/AutoJs6-Plugin-Paddle-OCR-PP-OCRv4/blob/master/.readme/README-ar.md)
+
+******
+
+### Введение
+
+******
+
+Плагин AutoJs6 Paddle OCR PP-OCRv4 предоставляет локальный OCR для AutoJs6 на основе Baidu PaddleOCR, с профилями моделей PP-OCRv4 Mobile, Server и Mobile EN.
+
+******
+
+### Возможности
+
+******
+
+- Предоставляет сервис плагина `paddle-ocr`, обнаруживаемый через action `org.autojs.plugin.PADDLE_OCR`.
+- Предоставляет три ID плагина: `paddle-ocr-pp-ocrv4-mobile`, `paddle-ocr-pp-ocrv4-server`, `paddle-ocr-pp-ocrv4-mobile-en`.
+- Поддерживает обнаружение и распознавание текста, возвращая текст, уверенность, прямоугольные границы и четыре точки.
+- Поддерживает ввод raw image и сообщает возможности, такие как `modelFamily`, `modelProfile`, `language` и поддерживаемые ABI.
+- Метаданные плагина, инструкции, README и CHANGELOG локализованы на испанский/французский/русский/арабский/японский/корейский/английский/упрощенный китайский/гонконгский традиционный китайский/тайваньский традиционный китайский.
+
+******
+
+### Профили
+
+******
+
+- `mobile`: Рекомендуемый профиль Android по умолчанию, использует модели обнаружения и распознавания PP-OCRv4 mobile.
+- `server`: Профиль с более высокой точностью, использует модели обнаружения и распознавания PP-OCRv4 server для более производительных устройств.
+- `mobile-en`: Профиль для английского и чисел, использует общую модель обнаружения mobile и английскую модель распознавания.
+
+ID плагинов:
+
+```text
+paddle-ocr-pp-ocrv4-mobile
+paddle-ocr-pp-ocrv4-server
+paddle-ocr-pp-ocrv4-mobile-en
+```
+
+******
+
+### Подготовка Моделей
+
+******
+
+Репозиторий не поставляет файлы моделей PP-OCRv4 напрямую. Запустите скрипт подготовки, чтобы скачать официальные статические модели вывода Paddle и преобразовать их в ONNX, либо используйте локальные пакеты моделей с `--source-dir`:
+
+```powershell
+python scripts\prepare_ppocrv4_assets.py --profile mobile
+python scripts\prepare_ppocrv4_assets.py --profile server
+python scripts\prepare_ppocrv4_assets.py --profile mobile-en
+python scripts\prepare_ppocrv4_assets.py --profile all
+```
+
+По умолчанию assets записываются по flavor Android, чтобы APK не содержали лишние модели:
+
+```text
+app/src/sharedMobileDet/assets/models/ppocrv4-mobile-det/det/inference.onnx
+app/src/mobile/assets/models/ppocrv4-mobile/rec/inference.onnx
+app/src/mobile/assets/models/ppocrv4-mobile/rec/inference.yml
+app/src/server/assets/models/ppocrv4-server/det/inference.onnx
+app/src/server/assets/models/ppocrv4-server/rec/inference.onnx
+app/src/server/assets/models/ppocrv4-server/rec/inference.yml
+app/src/mobileEn/assets/models/ppocrv4-mobile-en/rec/inference.onnx
+app/src/mobileEn/assets/models/ppocrv4-mobile-en/rec/inference.yml
+```
+
+******
+
+### Пример
+
+******
+
+```js
+ocr.tap("paddle");
+
+const img = images.read("/sdcard/Download/ocr-test.png");
+const results = ocr.detect(img, {
+  engineId: "paddle-ocr-pp-ocrv4-mobile",
+  profile: "mobile",
+  useRaw: true,
+  cpuThreadNum: 4,
+  scoreThreshold: 0.5,
+  detLimitSideLen: 736,
+  detLimitType: "min",
+});
+
+console.log(JSON.stringify(results, null, 2));
+img.recycle();
+```
+
+******
+
+### История Выпусков
+
+******
+
+# v1.0.0
+
+###### 2026/07/17
+
+* `Добавлено` Сервис плагина Paddle OCR PP-OCRv4 с движком `paddle-ocr` и вариантом `v4`
+* `Добавлено` Три OCR profile: `mobile`, `server` и `mobile-en`, покрывающие универсальную mobile модель, более точную server модель и английскую модель распознавания
+* `Добавлено` Обнаружение плагина через `org.autojs.plugin.PADDLE_OCR`, а также вызовы `recognizeText` и `detect`
+* `Добавлено` Вывод OCR с текстом, уверенностью, прямоугольными границами, четырьмя точками и информацией о времени
+* `Добавлено` Скрипт подготовки моделей `scripts/prepare_ppocrv4_assets.py`, который может скачать и преобразовать модели PP-OCRv4 в ONNX
+* `Добавлено` Локализованные метаданные и инструкции плагина на испанском/французском/русском/арабском/японском/корейском/английском/упрощенном китайском/гонконгском традиционном китайском/тайваньском традиционном китайском
+* `Добавлено` JSON источники и генерация скриптом для README и CHANGELOG
+* `Улучшено` Модельные assets разделены по flavor, а `mobile` и `mobile-en` используют общую модель обнаружения, чтобы APK не включали лишние модели распознавания
+* `Улучшено` Во время сборки проверяются необходимые `inference.onnx` и `inference.yml`, а при отсутствии assets выводятся соответствующие команды подготовки
+* `Улучшено` Имена Release APK включают version, profile и ABI variant, с выводами `arm64-v8a`, `armeabi-v7a` и `universal`
+* `Зависимость` Интегрированы `common-plugin-api.aar`, `paddle-ocr-api.aar`, PP-OCRv4 runtime, Paddle OCR Android SDK, OpenCV 4.8.0 и ONNX Runtime
+
+##### Более полная история выпусков
+
+* [Полная история выпусков](https://github.com/SuperMonster003/AutoJs6-Plugin-Paddle-OCR-PP-OCRv4/blob/master/.changelog/CHANGELOG-ru.md)
+
+******
+
+### Сборка
+
+******
+
+```powershell
+.\gradlew.bat :app:assembleMobileRelease
+.\gradlew.bat :app:assembleServerRelease
+.\gradlew.bat :app:assembleMobileEnRelease
+```
+
+Параметры сборки в основном берутся из `version.properties`, а app сейчас использует min SDK 26 и target SDK 36.
+
+Сборка Gradle проверяет необходимые файлы `inference.onnx` и `inference.yml` перед слиянием assets, и показывает подходящую команду подготовки моделей, если файл отсутствует.
+
+******
+
+### Структура Ресурсов
+
+******
+
+```text
+.readme/lang_*.json
+.changelog/lang_*.json
+.python/generate_markdown.py
+app/src/main/assets/doc/CHANGELOG*.md
+app/src/main/res/values-*/strings.xml
+app/src/main/res/raw-*/plugin_instruction.md
+```
+
+`strings.xml` предоставляет локализованные описания плагина; `plugin_instruction.md` предоставляет инструкции плагина для отображения на стороне хоста. README и CHANGELOG создаются `.python/generate_markdown.py` из исходных JSON файлов.
+
+******
+
+### Ссылки
+
+******
+
+- Документация AutoJs6 OCR: https://docs.autojs6.com/#/ocr
+- Официальный проект PaddleOCR: https://github.com/PaddlePaddle/PaddleOCR
+- Проект Paddle2ONNX: https://github.com/PaddlePaddle/Paddle2ONNX

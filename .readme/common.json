@@ -1,0 +1,10 @@
+{
+  "repo_url": "https://github.com/SuperMonster003/AutoJs6-Plugin-Paddle-OCR-PP-OCRv4",
+  "docs_ocr_url": "https://docs.autojs6.com/#/ocr",
+  "paddleocr_url": "https://github.com/PaddlePaddle/PaddleOCR",
+  "paddle2onnx_url": "https://github.com/PaddlePaddle/Paddle2ONNX",
+  "plugin_ids": "paddle-ocr-pp-ocrv4-mobile\npaddle-ocr-pp-ocrv4-server\npaddle-ocr-pp-ocrv4-mobile-en",
+  "prepare_model_commands": "python scripts\\prepare_ppocrv4_assets.py --profile mobile\npython scripts\\prepare_ppocrv4_assets.py --profile server\npython scripts\\prepare_ppocrv4_assets.py --profile mobile-en\npython scripts\\prepare_ppocrv4_assets.py --profile all",
+  "model_assets": "app/src/sharedMobileDet/assets/models/ppocrv4-mobile-det/det/inference.onnx\napp/src/mobile/assets/models/ppocrv4-mobile/rec/inference.onnx\napp/src/mobile/assets/models/ppocrv4-mobile/rec/inference.yml\napp/src/server/assets/models/ppocrv4-server/det/inference.onnx\napp/src/server/assets/models/ppocrv4-server/rec/inference.onnx\napp/src/server/assets/models/ppocrv4-server/rec/inference.yml\napp/src/mobileEn/assets/models/ppocrv4-mobile-en/rec/inference.onnx\napp/src/mobileEn/assets/models/ppocrv4-mobile-en/rec/inference.yml",
+  "build_release_commands": ".\\gradlew.bat :app:assembleMobileRelease\n.\\gradlew.bat :app:assembleServerRelease\n.\\gradlew.bat :app:assembleMobileEnRelease"
+}

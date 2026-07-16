@@ -1,0 +1,40 @@
+{
+  "$name": "한국어",
+  "text_current_lowercase": "현재",
+  "text_plugin_synopsis": "Android 텍스트 인식용 Paddle OCR PP-OCRv4 플러그인",
+  "h3_languages_with_ascii": "언어 (Languages)",
+  "p_languages_all_supported_for_readme": "README.md 는 다음 언어를 지원합니다",
+  "h3_introduction": "소개",
+  "p_introduction": "AutoJs6 Paddle OCR PP-OCRv4 플러그인은 Baidu PaddleOCR 기반 로컬 OCR 기능을 AutoJs6 에 제공하며, PP-OCRv4 Mobile, Server, Mobile EN 세 가지 모델 프로필을 지원합니다.",
+  "h3_functions": "기능",
+  "features": [
+    "`org.autojs.plugin.PADDLE_OCR` action 으로 발견되는 `paddle-ocr` 플러그인 서비스를 제공합니다.",
+    "세 가지 플러그인 ID 를 제공합니다: `paddle-ocr-pp-ocrv4-mobile`, `paddle-ocr-pp-ocrv4-server`, `paddle-ocr-pp-ocrv4-mobile-en`.",
+    "텍스트 감지와 텍스트 인식을 지원하고 텍스트, 신뢰도, 사각형 경계, 네 점 좌표를 반환합니다.",
+    "raw image 입력을 지원하고 `modelFamily`, `modelProfile`, `language`, 지원 ABI 같은 기능 정보를 보고합니다.",
+    "플러그인 메타데이터, 사용 설명, README, CHANGELOG 는 스페인어/프랑스어/러시아어/아랍어/일본어/한국어/영어/중국어 간체/홍콩 번체 중국어/대만 번체 중국어로 현지화됩니다."
+  ],
+  "h3_profiles": "프로필",
+  "profiles": [
+    "`mobile`: 권장 Android 기본 프로필이며 PP-OCRv4 mobile 감지 및 인식 모델을 사용합니다.",
+    "`server`: 더 높은 정확도의 프로필이며 고성능 기기용 PP-OCRv4 server 감지 및 인식 모델을 사용합니다.",
+    "`mobile-en`: 영어와 숫자 인식 프로필이며 mobile 감지 모델을 공유하고 영어 인식 모델을 사용합니다."
+  ],
+  "p_plugin_ids": "플러그인 ID",
+  "h3_prepare_models": "모델 준비",
+  "p_prepare_models": "저장소는 PP-OCRv4 모델 파일을 직접 포함하지 않습니다. 준비 스크립트를 실행해 공식 Paddle 정적 추론 모델을 내려받고 ONNX 로 변환하거나, `--source-dir` 로 로컬 모델 패키지를 사용할 수 있습니다:",
+  "p_model_assets": "기본적으로 assets 는 Android flavor 별로 작성되어 APK 가 관련 없는 모델을 포함하지 않게 합니다",
+  "h3_usage": "사용 예",
+  "h3_release_history": "릴리스 기록",
+  "h5_for_more_release_history": "더 많은 릴리스 기록",
+  "text_changelog_link_label": "전체 릴리스 기록",
+  "h3_build": "빌드",
+  "p_build_params": "빌드 매개변수는 주로 `version.properties` 에서 가져오며, app 은 현재 min SDK 26 과 target SDK 36 을 사용합니다",
+  "p_build_validation": "Gradle 빌드는 assets 병합 전에 필요한 `inference.onnx` 와 `inference.yml` 파일을 검증하며, 파일이 없으면 해당 모델 준비 명령을 표시합니다",
+  "h3_resource_layout": "리소스 구조",
+  "p_resource_layout": "`strings.xml` 은 현지화된 플러그인 설명을 제공하고; `plugin_instruction.md` 는 호스트 측에 표시되는 플러그인 사용 설명을 제공합니다. README 와 CHANGELOG 는 JSON 소스 파일에서 `.python/generate_markdown.py` 로 생성됩니다",
+  "h3_links": "링크",
+  "text_link_autojs6_ocr_docs": "AutoJs6 OCR 문서",
+  "text_link_paddleocr_official": "PaddleOCR 공식 프로젝트",
+  "text_link_paddle2onnx": "Paddle2ONNX 프로젝트"
+}

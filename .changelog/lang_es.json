@@ -1,0 +1,29 @@
+{
+  "changelog_label_hint": "Aviso",
+  "changelog_label_feature": "Nuevo",
+  "changelog_label_fix": "Correccion",
+  "changelog_label_improvement": "Mejora",
+  "changelog_label_dependency": "Dependencia",
+  "$data": {
+    "v1.0.0": {
+      "released_date": "2026/07/17",
+      "feature": [
+        "Servicio de complemento Paddle OCR PP-OCRv4 con motor `paddle-ocr` y variante `v4`",
+        "Tres perfiles OCR: `mobile`, `server` y `mobile-en`, cubriendo el modelo general mobile, el modelo server de mayor precision y el modelo de reconocimiento ingles",
+        "Descubrimiento del complemento mediante `org.autojs.plugin.PADDLE_OCR`, con llamadas `recognizeText` y `detect`",
+        "Salida OCR con texto, confianza, limites rectangulares, puntos de cuadrilatero e informacion de tiempos",
+        "Script de preparacion de modelos `scripts/prepare_ppocrv4_assets.py`, capaz de descargar y convertir modelos PP-OCRv4 a ONNX",
+        "Metadatos e instrucciones del complemento localizados en espanol/frances/ruso/arabe/japones/coreano/ingles/chino simplificado/chino tradicional de Hong Kong/chino tradicional de Taiwan",
+        "Fuente JSON y flujo de generacion por script para README y CHANGELOG"
+      ],
+      "improvement": [
+        "Assets de modelo separados por flavor, compartiendo el modelo de deteccion entre `mobile` y `mobile-en` para que los APK no incluyan modelos de reconocimiento no relacionados",
+        "Validacion de los archivos `inference.onnx` e `inference.yml` requeridos durante el build, con comandos de preparacion correspondientes cuando faltan assets",
+        "Los nombres de APK Release incluyen version, perfil y variante ABI, con salidas `arm64-v8a`, `armeabi-v7a` y `universal`"
+      ],
+      "dependency": [
+        "Integracion de `common-plugin-api.aar`, `paddle-ocr-api.aar`, PP-OCRv4 runtime, Paddle OCR Android SDK, OpenCV 4.8.0 y ONNX Runtime"
+      ]
+    }
+  }
+}

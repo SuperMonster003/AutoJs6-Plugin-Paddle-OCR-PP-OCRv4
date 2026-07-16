@@ -1,0 +1,40 @@
+{
+  "$name": "简体中文",
+  "text_current_lowercase": "当前",
+  "text_plugin_synopsis": "用于 Android 文本识别的 Paddle OCR PP-OCRv4 插件",
+  "h3_languages_with_ascii": "语言 (Languages)",
+  "p_languages_all_supported_for_readme": "当前 README.md 支持以下语言",
+  "h3_introduction": "简介",
+  "p_introduction": "AutoJs6 Paddle OCR PP-OCRv4 插件为 AutoJs6 提供基于百度飞桨 PaddleOCR 的本地 OCR 能力, 支持 PP-OCRv4 Mobile, Server 和 Mobile EN 三种模型配置.",
+  "h3_functions": "功能",
+  "features": [
+    "提供 `paddle-ocr` 插件服务, 服务发现 action 为 `org.autojs.plugin.PADDLE_OCR`.",
+    "提供三个插件 ID: `paddle-ocr-pp-ocrv4-mobile`, `paddle-ocr-pp-ocrv4-server`, `paddle-ocr-pp-ocrv4-mobile-en`.",
+    "支持文本检测和文本识别, 并返回文本, 置信度, 矩形边界和四点坐标.",
+    "支持 raw image 输入, 并上报 `modelFamily`, `modelProfile`, `language` 和支持 ABI 等能力信息.",
+    "插件信息, 使用说明, README 与 CHANGELOG 均支持西班牙语/法语/俄语/阿拉伯语/日语/韩语/英语/简体中文/香港繁体/台湾繁体."
+  ],
+  "h3_profiles": "模型配置",
+  "profiles": [
+    "`mobile`: 推荐的 Android 默认配置, 使用 PP-OCRv4 mobile 检测和识别模型.",
+    "`server`: 更高精度配置, 使用 PP-OCRv4 server 检测和识别模型, 更适合高性能设备.",
+    "`mobile-en`: 英文和数字识别配置, 共享 mobile 检测模型并使用英文识别模型."
+  ],
+  "p_plugin_ids": "插件 ID",
+  "h3_prepare_models": "准备模型",
+  "p_prepare_models": "仓库不直接包含 PP-OCRv4 模型文件. 先运行准备脚本下载官方 Paddle 静态推理模型并转换为 ONNX, 也可以通过 `--source-dir` 使用本地模型包:",
+  "p_model_assets": "默认按 Android flavor 写入各自所需资产, 避免 APK 携带无关模型",
+  "h3_usage": "使用示例",
+  "h3_release_history": "发行历史",
+  "h5_for_more_release_history": "更多发行历史可参阅",
+  "text_changelog_link_label": "完整发行历史",
+  "h3_build": "构建",
+  "p_build_params": "构建参数主要来自 `version.properties`, app 当前最低 SDK 为 26, 目标 SDK 为 36",
+  "p_build_validation": "Gradle 构建会在合并 assets 前校验所需 `inference.onnx` 和 `inference.yml` 文件, 缺失时会提示对应的模型准备命令",
+  "h3_resource_layout": "资源结构",
+  "p_resource_layout": "`strings.xml` 提供插件描述本地化; `plugin_instruction.md` 提供宿主侧展示的插件使用说明. README 与 CHANGELOG 由 `.python/generate_markdown.py` 根据 JSON 源文件生成",
+  "h3_links": "相关链接",
+  "text_link_autojs6_ocr_docs": "AutoJs6 OCR 文档",
+  "text_link_paddleocr_official": "PaddleOCR 官方项目",
+  "text_link_paddle2onnx": "Paddle2ONNX 项目"
+}

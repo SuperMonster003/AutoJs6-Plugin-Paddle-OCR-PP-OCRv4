@@ -1,0 +1,40 @@
+{
+  "$name": "繁體中文 (台灣)",
+  "text_current_lowercase": "目前",
+  "text_plugin_synopsis": "用於 Android 文字辨識的 Paddle OCR PP-OCRv4 外掛",
+  "h3_languages_with_ascii": "語言 (Languages)",
+  "p_languages_all_supported_for_readme": "目前 README.md 支援以下語言",
+  "h3_introduction": "簡介",
+  "p_introduction": "AutoJs6 Paddle OCR PP-OCRv4 外掛為 AutoJs6 提供基於百度飛槳 PaddleOCR 的本機 OCR 能力, 支援 PP-OCRv4 Mobile, Server 和 Mobile EN 三種模型設定.",
+  "h3_functions": "功能",
+  "features": [
+    "提供 `paddle-ocr` 外掛服務, 服務發現 action 為 `org.autojs.plugin.PADDLE_OCR`.",
+    "提供三個外掛 ID: `paddle-ocr-pp-ocrv4-mobile`, `paddle-ocr-pp-ocrv4-server`, `paddle-ocr-pp-ocrv4-mobile-en`.",
+    "支援文字偵測和文字辨識, 並回傳文字, 信賴度, 矩形邊界和四點座標.",
+    "支援 raw image 輸入, 並回報 `modelFamily`, `modelProfile`, `language` 和支援 ABI 等能力資訊.",
+    "外掛資訊, 使用說明, README 與 CHANGELOG 均支援西班牙文/法文/俄文/阿拉伯文/日文/韓文/英文/簡體中文/香港繁體/台灣繁體."
+  ],
+  "h3_profiles": "模型設定",
+  "profiles": [
+    "`mobile`: 建議的 Android 預設設定, 使用 PP-OCRv4 mobile 偵測和辨識模型.",
+    "`server`: 較高精度設定, 使用 PP-OCRv4 server 偵測和辨識模型, 較適合高效能裝置.",
+    "`mobile-en`: 英文和數字辨識設定, 共用 mobile 偵測模型並使用英文辨識模型."
+  ],
+  "p_plugin_ids": "外掛 ID",
+  "h3_prepare_models": "準備模型",
+  "p_prepare_models": "倉庫不直接包含 PP-OCRv4 模型檔案. 先執行準備腳本下載官方 Paddle 靜態推論模型並轉換為 ONNX, 也可以透過 `--source-dir` 使用本機模型包:",
+  "p_model_assets": "預設依 Android flavor 寫入各自所需資產, 避免 APK 攜帶無關模型",
+  "h3_usage": "使用範例",
+  "h3_release_history": "發行歷史",
+  "h5_for_more_release_history": "更多發行歷史可參閱",
+  "text_changelog_link_label": "完整發行歷史",
+  "h3_build": "建置",
+  "p_build_params": "建置參數主要來自 `version.properties`, app 目前最低 SDK 為 26, 目標 SDK 為 36",
+  "p_build_validation": "Gradle 建置會在合併 assets 前校驗所需 `inference.onnx` 和 `inference.yml` 檔案, 缺失時會提示對應的模型準備命令",
+  "h3_resource_layout": "資源結構",
+  "p_resource_layout": "`strings.xml` 提供外掛描述在地化; `plugin_instruction.md` 提供宿主側展示的外掛使用說明. README 與 CHANGELOG 由 `.python/generate_markdown.py` 根據 JSON 來源檔案生成",
+  "h3_links": "相關連結",
+  "text_link_autojs6_ocr_docs": "AutoJs6 OCR 文件",
+  "text_link_paddleocr_official": "PaddleOCR 官方專案",
+  "text_link_paddle2onnx": "Paddle2ONNX 專案"
+}

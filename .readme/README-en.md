@@ -5,7 +5,7 @@
     <img src="https://github.com/SuperMonster003/AutoJs6-Plugin-Paddle-OCR-PP-OCRv4/blob/master/app/src/main/res/mipmap/ic_launcher.png?raw=true" alt="autojs6-plugin-paddle-ocr-pp-ocrv4-ic-launcher" border="0" width="128" />
   </p>
 
-  <p>用于 Android 文本识别的 Paddle OCR PP-OCRv4 插件</p>
+  <p>Paddle OCR PP-OCRv4 plugin for Android text recognition</p>
 
   <p>
     <a href="https://github.com/SuperMonster003/AutoJs6-Plugin-Paddle-OCR-PP-OCRv4/releases"><img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/SuperMonster003/AutoJs6-Plugin-Paddle-OCR-PP-OCRv4?label=Release"/></a>
@@ -20,16 +20,16 @@
 
 ******
 
-### 语言 (Languages)
+### Languages
 
 ******
 
-当前 README.md 支持以下语言:
+README.md is available in the following languages:
 
-- 简体中文 [zh-Hans] # 当前
+- [简体中文 [zh-Hans]](https://github.com/SuperMonster003/AutoJs6-Plugin-Paddle-OCR-PP-OCRv4/blob/master/.readme/README-zh-Hans.md)
 - [繁體中文 (香港) [zh-Hant-HK]](https://github.com/SuperMonster003/AutoJs6-Plugin-Paddle-OCR-PP-OCRv4/blob/master/.readme/README-zh-Hant-HK.md)
 - [繁體中文 (台灣) [zh-Hant-TW]](https://github.com/SuperMonster003/AutoJs6-Plugin-Paddle-OCR-PP-OCRv4/blob/master/.readme/README-zh-Hant-TW.md)
-- [English [en]](https://github.com/SuperMonster003/AutoJs6-Plugin-Paddle-OCR-PP-OCRv4/blob/master/.readme/README-en.md)
+- English [en] # current
 - [Français [fr]](https://github.com/SuperMonster003/AutoJs6-Plugin-Paddle-OCR-PP-OCRv4/blob/master/.readme/README-fr.md)
 - [Español [es]](https://github.com/SuperMonster003/AutoJs6-Plugin-Paddle-OCR-PP-OCRv4/blob/master/.readme/README-es.md)
 - [日本語 [ja]](https://github.com/SuperMonster003/AutoJs6-Plugin-Paddle-OCR-PP-OCRv4/blob/master/.readme/README-ja.md)
@@ -39,35 +39,35 @@
 
 ******
 
-### 简介
+### Introduction
 
 ******
 
-AutoJs6 Paddle OCR PP-OCRv4 插件为 AutoJs6 提供基于百度飞桨 PaddleOCR 的本地 OCR 能力, 支持 PP-OCRv4 Mobile, Server 和 Mobile EN 三种模型配置.
+AutoJs6 Paddle OCR PP-OCRv4 Plugin provides local OCR for AutoJs6 based on Baidu PaddleOCR, with PP-OCRv4 Mobile, Server, and Mobile EN model profiles.
 
 ******
 
-### 功能
+### Features
 
 ******
 
-- 提供 `paddle-ocr` 插件服务, 服务发现 action 为 `org.autojs.plugin.PADDLE_OCR`.
-- 提供三个插件 ID: `paddle-ocr-pp-ocrv4-mobile`, `paddle-ocr-pp-ocrv4-server`, `paddle-ocr-pp-ocrv4-mobile-en`.
-- 支持文本检测和文本识别, 并返回文本, 置信度, 矩形边界和四点坐标.
-- 支持 raw image 输入, 并上报 `modelFamily`, `modelProfile`, `language` 和支持 ABI 等能力信息.
-- 插件信息, 使用说明, README 与 CHANGELOG 均支持西班牙语/法语/俄语/阿拉伯语/日语/韩语/英语/简体中文/香港繁体/台湾繁体.
+- Provides the `paddle-ocr` plugin service, discovered with action `org.autojs.plugin.PADDLE_OCR`.
+- Provides three plugin IDs: `paddle-ocr-pp-ocrv4-mobile`, `paddle-ocr-pp-ocrv4-server`, `paddle-ocr-pp-ocrv4-mobile-en`.
+- Supports text detection and text recognition, returning text, confidence, rectangular bounds, and quad points.
+- Supports raw image input and reports capabilities such as `modelFamily`, `modelProfile`, `language`, and supported ABIs.
+- Plugin metadata, instructions, README, and CHANGELOG are localized for Spanish/French/Russian/Arabic/Japanese/Korean/English/Simplified Chinese/Hong Kong Traditional Chinese/Taiwan Traditional Chinese.
 
 ******
 
-### 模型配置
+### Profiles
 
 ******
 
-- `mobile`: 推荐的 Android 默认配置, 使用 PP-OCRv4 mobile 检测和识别模型.
-- `server`: 更高精度配置, 使用 PP-OCRv4 server 检测和识别模型, 更适合高性能设备.
-- `mobile-en`: 英文和数字识别配置, 共享 mobile 检测模型并使用英文识别模型.
+- `mobile`: Recommended Android default profile, using PP-OCRv4 mobile detection and recognition models.
+- `server`: Higher-accuracy profile, using PP-OCRv4 server detection and recognition models for higher-performance devices.
+- `mobile-en`: English and number recognition profile, sharing the mobile detection model with an English recognition model.
 
-插件 ID:
+Plugin IDs:
 
 ```text
 paddle-ocr-pp-ocrv4-mobile
@@ -77,11 +77,11 @@ paddle-ocr-pp-ocrv4-mobile-en
 
 ******
 
-### 准备模型
+### Prepare Models
 
 ******
 
-仓库不直接包含 PP-OCRv4 模型文件. 先运行准备脚本下载官方 Paddle 静态推理模型并转换为 ONNX, 也可以通过 `--source-dir` 使用本地模型包:
+The repository does not ship PP-OCRv4 model files directly. Run the preparation script to download official Paddle static inference models and convert them to ONNX, or use local model packages with `--source-dir`:
 
 ```powershell
 python scripts\prepare_ppocrv4_assets.py --profile mobile
@@ -90,7 +90,7 @@ python scripts\prepare_ppocrv4_assets.py --profile mobile-en
 python scripts\prepare_ppocrv4_assets.py --profile all
 ```
 
-默认按 Android flavor 写入各自所需资产, 避免 APK 携带无关模型:
+By default, assets are written per Android flavor so APKs do not carry unrelated models:
 
 ```text
 app/src/sharedMobileDet/assets/models/ppocrv4-mobile-det/det/inference.onnx
@@ -105,7 +105,7 @@ app/src/mobileEn/assets/models/ppocrv4-mobile-en/rec/inference.yml
 
 ******
 
-### 使用示例
+### Usage
 
 ******
 
@@ -129,7 +129,7 @@ img.recycle();
 
 ******
 
-### 发行历史
+### Release History
 
 ******
 
@@ -137,25 +137,25 @@ img.recycle();
 
 ###### 2026/07/17
 
-* `新增` Paddle OCR PP-OCRv4 插件服务, 引擎为 `paddle-ocr`, 变体为 `v4`
-* `新增` 三个 OCR profile: `mobile`, `server`, `mobile-en`, 分别对应移动端通用模型, 高精度服务端模型和英文识别模型
-* `新增` 支持通过 `org.autojs.plugin.PADDLE_OCR` 发现插件, 并支持 `recognizeText` 与 `detect` 调用
-* `新增` 支持返回 OCR 文本, 置信度, 矩形边界, 四点坐标和耗时信息
-* `新增` 模型准备脚本 `scripts/prepare_ppocrv4_assets.py`, 可下载并转换 PP-OCRv4 模型到 ONNX
-* `新增` 插件信息和使用说明的多语言资源: 西班牙语/法语/俄语/阿拉伯语/日语/韩语/英语/简体中文/香港繁体/台湾繁体
-* `新增` README 与 CHANGELOG 的 JSON 源和脚本生成流程
-* `优化` 按 flavor 拆分模型资产, `mobile` 和 `mobile-en` 共享检测模型, 避免 APK 携带无关识别模型
-* `优化` 构建阶段校验所需 `inference.onnx` 和 `inference.yml`, 缺失时提示对应准备命令
-* `优化` Release APK 文件名包含版本号, profile 和 ABI 变体, 并支持 `arm64-v8a`, `armeabi-v7a` 与 `universal` 输出
-* `依赖` 集成 `common-plugin-api.aar`, `paddle-ocr-api.aar`, PP-OCRv4 runtime, Paddle OCR Android SDK, OpenCV 4.8.0 和 ONNX Runtime
+* `Feature` Paddle OCR PP-OCRv4 plugin service with engine `paddle-ocr` and variant `v4`
+* `Feature` Three OCR profiles: `mobile`, `server`, and `mobile-en`, covering the mobile general model, higher-accuracy server model, and English recognition model
+* `Feature` Plugin discovery through `org.autojs.plugin.PADDLE_OCR`, with `recognizeText` and `detect` calls
+* `Feature` OCR output with text, confidence, rectangular bounds, quad points, and timing information
+* `Feature` Model preparation script `scripts/prepare_ppocrv4_assets.py`, which can download and convert PP-OCRv4 models to ONNX
+* `Feature` Localized plugin metadata and instructions for Spanish/French/Russian/Arabic/Japanese/Korean/English/Simplified Chinese/Hong Kong Traditional Chinese/Taiwan Traditional Chinese
+* `Feature` JSON source and script generation flow for README and CHANGELOG
+* `Improvement` Split model assets by flavor, sharing the detection model between `mobile` and `mobile-en` so APKs do not ship unrelated recognition models
+* `Improvement` Validate required `inference.onnx` and `inference.yml` files during the build, with matching preparation commands when assets are missing
+* `Improvement` Release APK names include version, profile, and ABI variant, with `arm64-v8a`, `armeabi-v7a`, and `universal` outputs
+* `Dependency` Integrated `common-plugin-api.aar`, `paddle-ocr-api.aar`, PP-OCRv4 runtime, Paddle OCR Android SDK, OpenCV 4.8.0, and ONNX Runtime
 
-##### 更多发行历史可参阅
+##### For more release history
 
-* [完整发行历史](https://github.com/SuperMonster003/AutoJs6-Plugin-Paddle-OCR-PP-OCRv4/blob/master/.changelog/CHANGELOG-zh-Hans.md)
+* [Full release history](https://github.com/SuperMonster003/AutoJs6-Plugin-Paddle-OCR-PP-OCRv4/blob/master/.changelog/CHANGELOG-en.md)
 
 ******
 
-### 构建
+### Build
 
 ******
 
@@ -165,13 +165,13 @@ img.recycle();
 .\gradlew.bat :app:assembleMobileEnRelease
 ```
 
-构建参数主要来自 `version.properties`, app 当前最低 SDK 为 26, 目标 SDK 为 36.
+Build parameters mainly come from `version.properties`, while the app currently uses min SDK 26 and target SDK 36.
 
-Gradle 构建会在合并 assets 前校验所需 `inference.onnx` 和 `inference.yml` 文件, 缺失时会提示对应的模型准备命令.
+The Gradle build validates required `inference.onnx` and `inference.yml` files before merging assets, and prints the matching model preparation command if any file is missing.
 
 ******
 
-### 资源结构
+### Resource Layout
 
 ******
 
@@ -184,14 +184,14 @@ app/src/main/res/values-*/strings.xml
 app/src/main/res/raw-*/plugin_instruction.md
 ```
 
-`strings.xml` 提供插件描述本地化; `plugin_instruction.md` 提供宿主侧展示的插件使用说明. README 与 CHANGELOG 由 `.python/generate_markdown.py` 根据 JSON 源文件生成.
+`strings.xml` provides localized plugin descriptions; `plugin_instruction.md` provides host-side plugin instructions. README and CHANGELOG are generated by `.python/generate_markdown.py` from JSON source files.
 
 ******
 
-### 相关链接
+### Links
 
 ******
 
-- AutoJs6 OCR 文档: https://docs.autojs6.com/#/ocr
-- PaddleOCR 官方项目: https://github.com/PaddlePaddle/PaddleOCR
-- Paddle2ONNX 项目: https://github.com/PaddlePaddle/Paddle2ONNX
+- AutoJs6 OCR documentation: https://docs.autojs6.com/#/ocr
+- PaddleOCR official project: https://github.com/PaddlePaddle/PaddleOCR
+- Paddle2ONNX project: https://github.com/PaddlePaddle/Paddle2ONNX

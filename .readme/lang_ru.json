@@ -1,0 +1,40 @@
+{
+  "$name": "Русский",
+  "text_current_lowercase": "текущий",
+  "text_plugin_synopsis": "Плагин Paddle OCR PP-OCRv4 для распознавания текста на Android",
+  "h3_languages_with_ascii": "Языки (Languages)",
+  "p_languages_all_supported_for_readme": "README.md доступен на следующих языках",
+  "h3_introduction": "Введение",
+  "p_introduction": "Плагин AutoJs6 Paddle OCR PP-OCRv4 предоставляет локальный OCR для AutoJs6 на основе Baidu PaddleOCR, с профилями моделей PP-OCRv4 Mobile, Server и Mobile EN.",
+  "h3_functions": "Возможности",
+  "features": [
+    "Предоставляет сервис плагина `paddle-ocr`, обнаруживаемый через action `org.autojs.plugin.PADDLE_OCR`.",
+    "Предоставляет три ID плагина: `paddle-ocr-pp-ocrv4-mobile`, `paddle-ocr-pp-ocrv4-server`, `paddle-ocr-pp-ocrv4-mobile-en`.",
+    "Поддерживает обнаружение и распознавание текста, возвращая текст, уверенность, прямоугольные границы и четыре точки.",
+    "Поддерживает ввод raw image и сообщает возможности, такие как `modelFamily`, `modelProfile`, `language` и поддерживаемые ABI.",
+    "Метаданные плагина, инструкции, README и CHANGELOG локализованы на испанский/французский/русский/арабский/японский/корейский/английский/упрощенный китайский/гонконгский традиционный китайский/тайваньский традиционный китайский."
+  ],
+  "h3_profiles": "Профили",
+  "profiles": [
+    "`mobile`: Рекомендуемый профиль Android по умолчанию, использует модели обнаружения и распознавания PP-OCRv4 mobile.",
+    "`server`: Профиль с более высокой точностью, использует модели обнаружения и распознавания PP-OCRv4 server для более производительных устройств.",
+    "`mobile-en`: Профиль для английского и чисел, использует общую модель обнаружения mobile и английскую модель распознавания."
+  ],
+  "p_plugin_ids": "ID плагинов",
+  "h3_prepare_models": "Подготовка Моделей",
+  "p_prepare_models": "Репозиторий не поставляет файлы моделей PP-OCRv4 напрямую. Запустите скрипт подготовки, чтобы скачать официальные статические модели вывода Paddle и преобразовать их в ONNX, либо используйте локальные пакеты моделей с `--source-dir`:",
+  "p_model_assets": "По умолчанию assets записываются по flavor Android, чтобы APK не содержали лишние модели",
+  "h3_usage": "Пример",
+  "h3_release_history": "История Выпусков",
+  "h5_for_more_release_history": "Более полная история выпусков",
+  "text_changelog_link_label": "Полная история выпусков",
+  "h3_build": "Сборка",
+  "p_build_params": "Параметры сборки в основном берутся из `version.properties`, а app сейчас использует min SDK 26 и target SDK 36",
+  "p_build_validation": "Сборка Gradle проверяет необходимые файлы `inference.onnx` и `inference.yml` перед слиянием assets, и показывает подходящую команду подготовки моделей, если файл отсутствует",
+  "h3_resource_layout": "Структура Ресурсов",
+  "p_resource_layout": "`strings.xml` предоставляет локализованные описания плагина; `plugin_instruction.md` предоставляет инструкции плагина для отображения на стороне хоста. README и CHANGELOG создаются `.python/generate_markdown.py` из исходных JSON файлов",
+  "h3_links": "Ссылки",
+  "text_link_autojs6_ocr_docs": "Документация AutoJs6 OCR",
+  "text_link_paddleocr_official": "Официальный проект PaddleOCR",
+  "text_link_paddle2onnx": "Проект Paddle2ONNX"
+}

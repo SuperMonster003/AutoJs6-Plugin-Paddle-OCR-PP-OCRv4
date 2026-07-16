@@ -33,8 +33,8 @@ __pycache__/
 /build/
 /app/**/build/
 /libs/**/build/
-/app/release/
-/app/releases/
+/app/**/release/
+/app/**/releases/
 /app/src/*/assets/models/
 /app/src/main/assets/models/
 

@@ -1,0 +1,40 @@
+{
+  "$name": "Français",
+  "text_current_lowercase": "actuel",
+  "text_plugin_synopsis": "Plugin Paddle OCR PP-OCRv4 pour la reconnaissance de texte Android",
+  "h3_languages_with_ascii": "Langues (Languages)",
+  "p_languages_all_supported_for_readme": "README.md est disponible dans les langues suivantes",
+  "h3_introduction": "Introduction",
+  "p_introduction": "Le plugin AutoJs6 Paddle OCR PP-OCRv4 fournit une capacite OCR locale pour AutoJs6 basee sur Baidu PaddleOCR, avec les profils de modele PP-OCRv4 Mobile, Server et Mobile EN.",
+  "h3_functions": "Fonctions",
+  "features": [
+    "Fournit le service de plugin `paddle-ocr`, decouvert avec l'action `org.autojs.plugin.PADDLE_OCR`.",
+    "Fournit trois ID de plugin: `paddle-ocr-pp-ocrv4-mobile`, `paddle-ocr-pp-ocrv4-server`, `paddle-ocr-pp-ocrv4-mobile-en`.",
+    "Prend en charge la detection et la reconnaissance de texte, avec texte, confiance, limites rectangulaires et points quadrilateres.",
+    "Prend en charge l'entree raw image et annonce des capacites comme `modelFamily`, `modelProfile`, `language` et les ABI pris en charge.",
+    "Les metadonnees du plugin, les instructions, README et CHANGELOG sont localises en espagnol/francais/russe/arabe/japonais/coreen/anglais/chinois simplifie/chinois traditionnel de Hong Kong/chinois traditionnel de Taiwan."
+  ],
+  "h3_profiles": "Profils",
+  "profiles": [
+    "`mobile`: Profil Android recommande par defaut, avec les modeles de detection et de reconnaissance PP-OCRv4 mobile.",
+    "`server`: Profil de precision plus elevee, avec les modeles de detection et de reconnaissance PP-OCRv4 server pour les appareils plus performants.",
+    "`mobile-en`: Profil pour l'anglais et les nombres, partageant le modele de detection mobile avec un modele de reconnaissance anglais."
+  ],
+  "p_plugin_ids": "ID de plugin",
+  "h3_prepare_models": "Preparation Des Modeles",
+  "p_prepare_models": "Le depot ne fournit pas directement les fichiers de modele PP-OCRv4. Executez le script de preparation pour telecharger les modeles Paddle officiels d'inference statique et les convertir en ONNX, ou utilisez des packages locaux avec `--source-dir`:",
+  "p_model_assets": "Par defaut, les assets sont ecrits par flavor Android afin que les APK ne contiennent pas de modeles sans rapport",
+  "h3_usage": "Exemple",
+  "h3_release_history": "Historique Des Versions",
+  "h5_for_more_release_history": "Pour plus d'historique",
+  "text_changelog_link_label": "Historique complet",
+  "h3_build": "Build",
+  "p_build_params": "Les parametres de build proviennent principalement de `version.properties`, tandis que l'app utilise actuellement min SDK 26 et target SDK 36",
+  "p_build_validation": "Le build Gradle valide les fichiers `inference.onnx` et `inference.yml` requis avant de fusionner les assets, et affiche la commande de preparation correspondante si un fichier manque",
+  "h3_resource_layout": "Structure Des Ressources",
+  "p_resource_layout": "`strings.xml` fournit les descriptions localisees du plugin; `plugin_instruction.md` fournit les instructions du plugin cote hote. README et CHANGELOG sont generes par `.python/generate_markdown.py` depuis les fichiers source JSON",
+  "h3_links": "Liens",
+  "text_link_autojs6_ocr_docs": "Documentation OCR AutoJs6",
+  "text_link_paddleocr_official": "Projet officiel PaddleOCR",
+  "text_link_paddle2onnx": "Projet Paddle2ONNX"
+}
