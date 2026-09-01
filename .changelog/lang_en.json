@@ -6,7 +6,7 @@
   "changelog_label_dependency": "Dependency",
   "$data": {
     "v1.0.0": {
-      "released_date": "2026/07/17",
+      "released_date": "2026/09/01",
       "feature": [
         "Paddle OCR PP-OCRv4 plugin service with engine `paddle-ocr` and variant `v4`",
         "Three OCR profiles: `mobile`, `server`, and `mobile-en`, covering the mobile general model, higher-accuracy server model, and English recognition model",
@@ -16,10 +16,14 @@
         "Localized plugin metadata and instructions for Spanish/French/Russian/Arabic/Japanese/Korean/English/Simplified Chinese/Hong Kong Traditional Chinese/Taiwan Traditional Chinese",
         "JSON source and script generation flow for README and CHANGELOG"
       ],
+      "fix": [
+        "The plugin could not be activated from Plugin Center after installation on some systems"
+      ],
       "improvement": [
         "Split model assets by flavor, sharing the detection model between `mobile` and `mobile-en` so APKs do not ship unrelated recognition models",
         "Validate required `inference.onnx` and `inference.yml` files during the build, with matching preparation commands when assets are missing",
-        "Release APK names include version, profile, and ABI variant, with `arm64-v8a`, `armeabi-v7a`, and `universal` outputs"
+        "Release APK names include version, profile, and ABI variant, with `arm64-v8a`, `armeabi-v7a`, and `universal` outputs",
+        "Standardize the README layout and Gradle platform version management"
       ],
       "dependency": [
         "Integrated `common-plugin-api.aar`, `paddle-ocr-api.aar`, PP-OCRv4 runtime, Paddle OCR Android SDK, OpenCV 4.8.0, and ONNX Runtime"

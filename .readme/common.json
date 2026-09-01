@@ -1,5 +1,8 @@
 {
   "repo_url": "https://github.com/SuperMonster003/AutoJs6-Plugin-Paddle-OCR-PP-OCRv4",
+  "repo_slug": "SuperMonster003/AutoJs6-Plugin-Paddle-OCR-PP-OCRv4",
+  "icon_alt": "autojs6-plugin-paddle-ocr-pp-ocrv4-ic-launcher",
+  "license_url": "{{ repo_url }}/blob/master/LICENSE",
   "docs_ocr_url": "https://docs.autojs6.com/#/ocr",
   "paddleocr_url": "https://github.com/PaddlePaddle/PaddleOCR",
   "paddle2onnx_url": "https://github.com/PaddlePaddle/Paddle2ONNX",

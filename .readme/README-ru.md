@@ -2,7 +2,9 @@
 
 <div align="center">
   <p>
-    <img src="https://github.com/SuperMonster003/AutoJs6-Plugin-Paddle-OCR-PP-OCRv4/blob/master/app/src/main/res/mipmap/ic_launcher.png?raw=true" alt="autojs6-plugin-paddle-ocr-pp-ocrv4-ic-launcher" border="0" width="128" />
+    <picture>
+      <img src="https://github.com/SuperMonster003/AutoJs6-Plugin-Paddle-OCR-PP-OCRv4/blob/master/app/src/main/res/mipmap/ic_launcher.png?raw=true" alt="autojs6-plugin-paddle-ocr-pp-ocrv4-ic-launcher" border="0" width="128" />
+    </picture>
   </p>
 
   <p>Плагин Paddle OCR PP-OCRv4 для распознавания текста на Android</p>
@@ -10,10 +12,6 @@
   <p>
     <a href="https://github.com/SuperMonster003/AutoJs6-Plugin-Paddle-OCR-PP-OCRv4/releases"><img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/SuperMonster003/AutoJs6-Plugin-Paddle-OCR-PP-OCRv4?label=Release"/></a>
     <a href="https://github.com/SuperMonster003/AutoJs6-Plugin-Paddle-OCR-PP-OCRv4/issues"><img alt="GitHub closed issues" src="https://img.shields.io/github/issues/SuperMonster003/AutoJs6-Plugin-Paddle-OCR-PP-OCRv4?color=A24232&label=Issues"/></a>
-    <a href="https://github.com/SuperMonster003/AutoJs6-Plugin-Paddle-OCR-PP-OCRv4/commit/668bfc2f23256c89bbad49590c946a0d3efb9b74"><img alt="Created" src="https://img.shields.io/date/1783168887?color=2e7d32&label=Created"/></a>
-    <br>
-    <a href="https://developer.android.com/studio/archive"><img alt="Android Studio" src="https://img.shields.io/badge/Android%20Studio-2023.3+-B64FC8"/></a>
-    <a href="https://www.jetbrains.com/idea/download/other.html"><img alt="IntelliJ IDEA" src="https://img.shields.io/badge/IntelliJ%20IDEA-2023.3+-EE4677"/></a>
     <a href="https://github.com/SuperMonster003/AutoJs6-Plugin-Paddle-OCR-PP-OCRv4/blob/master/LICENSE"><img alt="GitHub License" src="https://img.shields.io/github/license/SuperMonster003/AutoJs6-Plugin-Paddle-OCR-PP-OCRv4?color=534BAE&label=License"/></a>
   </p>
 </div>
@@ -135,7 +133,7 @@ img.recycle();
 
 # v1.0.0
 
-###### 2026/07/17
+###### 2026/09/01
 
 * `Добавлено` Сервис плагина Paddle OCR PP-OCRv4 с движком `paddle-ocr` и вариантом `v4`
 * `Добавлено` Три OCR profile: `mobile`, `server` и `mobile-en`, покрывающие универсальную mobile модель, более точную server модель и английскую модель распознавания
@@ -144,14 +142,16 @@ img.recycle();
 * `Добавлено` Скрипт подготовки моделей `scripts/prepare_ppocrv4_assets.py`, который может скачать и преобразовать модели PP-OCRv4 в ONNX
 * `Добавлено` Локализованные метаданные и инструкции плагина на испанском/французском/русском/арабском/японском/корейском/английском/упрощенном китайском/гонконгском традиционном китайском/тайваньском традиционном китайском
 * `Добавлено` JSON источники и генерация скриптом для README и CHANGELOG
+* `Исправлено` Невозможность активировать плагин из центра плагинов после установки в некоторых системах
 * `Улучшено` Модельные assets разделены по flavor, а `mobile` и `mobile-en` используют общую модель обнаружения, чтобы APK не включали лишние модели распознавания
 * `Улучшено` Во время сборки проверяются необходимые `inference.onnx` и `inference.yml`, а при отсутствии assets выводятся соответствующие команды подготовки
 * `Улучшено` Имена Release APK включают version, profile и ABI variant, с выводами `arm64-v8a`, `armeabi-v7a` и `universal`
+* `Улучшено` Унифицировать оформление README и управление версиями платформы Gradle
 * `Зависимость` Интегрированы `common-plugin-api.aar`, `paddle-ocr-api.aar`, PP-OCRv4 runtime, Paddle OCR Android SDK, OpenCV 4.8.0 и ONNX Runtime
 
 ##### Более полная история выпусков
 
-* [Полная история выпусков](https://github.com/SuperMonster003/AutoJs6-Plugin-Paddle-OCR-PP-OCRv4/blob/master/.changelog/CHANGELOG-ru.md)
+* [Полная история выпусков](https://github.com/SuperMonster003/AutoJs6-Plugin-Paddle-OCR-PP-OCRv4/blob/master/app/src/main/assets/doc/CHANGELOG-ru.md)
 
 ******
 
