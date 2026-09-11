@@ -131,6 +131,12 @@ img.recycle();
 
 ******
 
+# v1.0.1
+
+###### 2026/09/11
+
+* `تحسين` التحقق أثناء البناء من محاذاة صفحات 16 KB للمكتبات الأصلية ذات 64 بت, مع فحص عقد manifest وتقارير JSON
+
 # v1.0.0
 
 ###### 2026/09/01
@@ -195,3 +201,6 @@ app/src/main/res/raw-*/plugin_instruction.md
 - وثائق AutoJs6 OCR: https://docs.autojs6.com/#/ocr
 - مشروع PaddleOCR الرسمي: https://github.com/PaddlePaddle/PaddleOCR
 - مشروع Paddle2ONNX: https://github.com/PaddlePaddle/Paddle2ONNX
+
+
+[16 KB page alignment and build verification](https://github.com/SuperMonster003/AutoJs6-Plugin-Paddle-OCR-PP-OCRv4/blob/master/docs/16kb.md)

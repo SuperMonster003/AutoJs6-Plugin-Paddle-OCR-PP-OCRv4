@@ -131,6 +131,12 @@ img.recycle();
 
 ******
 
+# v1.0.1
+
+###### 2026/09/11
+
+* `优化` 构建阶段校验 64 位原生库的 16 KB 页大小对齐, 检查 manifest 契约并输出 JSON 报告
+
 # v1.0.0
 
 ###### 2026/09/01
@@ -195,3 +201,6 @@ app/src/main/res/raw-*/plugin_instruction.md
 - AutoJs6 OCR 文档: https://docs.autojs6.com/#/ocr
 - PaddleOCR 官方项目: https://github.com/PaddlePaddle/PaddleOCR
 - Paddle2ONNX 项目: https://github.com/PaddlePaddle/Paddle2ONNX
+
+
+[16 KB page alignment and build verification](https://github.com/SuperMonster003/AutoJs6-Plugin-Paddle-OCR-PP-OCRv4/blob/master/docs/16kb.md)

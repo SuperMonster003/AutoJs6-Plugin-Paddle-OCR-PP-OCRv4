@@ -131,6 +131,12 @@ img.recycle();
 
 ******
 
+# v1.0.1
+
+###### 2026/09/11
+
+* `Improvement` Build verification of 16 KB page alignment for 64-bit native libraries, including manifest contract checks and JSON reports
+
 # v1.0.0
 
 ###### 2026/09/01
@@ -195,3 +201,6 @@ app/src/main/res/raw-*/plugin_instruction.md
 - AutoJs6 OCR documentation: https://docs.autojs6.com/#/ocr
 - PaddleOCR official project: https://github.com/PaddlePaddle/PaddleOCR
 - Paddle2ONNX project: https://github.com/PaddlePaddle/Paddle2ONNX
+
+
+[16 KB page alignment and build verification](https://github.com/SuperMonster003/AutoJs6-Plugin-Paddle-OCR-PP-OCRv4/blob/master/docs/16kb.md)

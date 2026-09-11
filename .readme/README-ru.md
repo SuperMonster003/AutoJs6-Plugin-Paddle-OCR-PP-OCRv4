@@ -131,6 +131,12 @@ img.recycle();
 
 ******
 
+# v1.0.1
+
+###### 2026/09/11
+
+* `Улучшено` Проверка выравнивания страниц 16 KB для 64-битных нативных библиотек при сборке, включая контракт manifest и отчеты JSON
+
 # v1.0.0
 
 ###### 2026/09/01
@@ -195,3 +201,6 @@ app/src/main/res/raw-*/plugin_instruction.md
 - Документация AutoJs6 OCR: https://docs.autojs6.com/#/ocr
 - Официальный проект PaddleOCR: https://github.com/PaddlePaddle/PaddleOCR
 - Проект Paddle2ONNX: https://github.com/PaddlePaddle/Paddle2ONNX
+
+
+[16 KB page alignment and build verification](https://github.com/SuperMonster003/AutoJs6-Plugin-Paddle-OCR-PP-OCRv4/blob/master/docs/16kb.md)
