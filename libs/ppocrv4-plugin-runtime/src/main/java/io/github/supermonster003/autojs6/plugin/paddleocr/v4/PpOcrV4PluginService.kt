@@ -39,12 +39,8 @@ class PpOcrV4PluginService : Service() {
             val runtimeConfig = PpOcrV4RuntimeConfig.from(this@PpOcrV4PluginService)
             val profile = PpOcrV4Profile.fromConfig(runtimeConfig)
             return PluginInfo().apply {
-                name = "Paddle OCR (PP-OCRv4 ${profile.value})"
-                description = when (profile) {
-                    PpOcrV4Profile.MOBILE -> "PP-OCRv4 mobile profile for mixed-language and number OCR on Android devices."
-                    PpOcrV4Profile.SERVER -> "PP-OCRv4 server profile for higher-accuracy mixed-language OCR on high-end devices."
-                    PpOcrV4Profile.MOBILE_EN -> "PP-OCRv4 mobile EN profile for English and number OCR."
-                }
+                name = org.autojs.plugin.runtime.InstalledPackageIdentity.stringResource(this@PpOcrV4PluginService, "app_name")
+                description = org.autojs.plugin.runtime.InstalledPackageIdentity.stringResource(this@PpOcrV4PluginService, "plugin_description")
                 author = runtimeConfig.pluginAuthor
                 id = runtimeConfig.pluginId
                 engine = runtimeConfig.pluginEngine
@@ -52,7 +48,7 @@ class PpOcrV4PluginService : Service() {
                 versionName = runtimeConfig.versionName
                 versionCode = runtimeConfig.versionCode
                 versionDate = runtimeConfig.versionDate
-                supportedAbis = SUPPORTED_ABIS
+                org.autojs.plugin.runtime.InstalledPackageIdentity.apply(this@PpOcrV4PluginService, this)
                 capabilities = Bundle().apply {
                     putInt(PluginCapabilityKeys.REQUIRES_HOST_VERSION, 3835)
                     putBoolean(PaddleOcrPluginCapabilityKeys.SUPPORTS_RAW_IMAGE, true)

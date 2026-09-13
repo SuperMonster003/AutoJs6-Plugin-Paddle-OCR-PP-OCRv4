@@ -12,7 +12,9 @@
     "Provides three plugin IDs: `paddle-ocr-pp-ocrv4-mobile`, `paddle-ocr-pp-ocrv4-server`, `paddle-ocr-pp-ocrv4-mobile-en`.",
     "Supports text detection and text recognition, returning text, confidence, rectangular bounds, and quad points.",
     "Supports raw image input and reports capabilities such as `modelFamily`, `modelProfile`, `language`, and supported ABIs.",
-    "Plugin metadata, instructions, README, and CHANGELOG are localized for Spanish/French/Russian/Arabic/Japanese/Korean/English/Simplified Chinese/Hong Kong Traditional Chinese/Taiwan Traditional Chinese."
+    "Plugin metadata, instructions, README, and CHANGELOG are localized for Spanish/French/Russian/Arabic/Japanese/Korean/English/Simplified Chinese/Hong Kong Traditional Chinese/Taiwan Traditional Chinese.",
+    "Images may contain at most 16777216 pixels; raw image buffers are limited to 64 MiB",
+    "Encoded image input is limited to 64 MiB and supports file descriptors and pipes"
   ],
   "h3_profiles": "Profiles",
   "profiles": [

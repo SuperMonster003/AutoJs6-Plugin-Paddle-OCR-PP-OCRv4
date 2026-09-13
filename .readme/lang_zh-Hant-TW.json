@@ -12,7 +12,9 @@
     "提供三個外掛 ID: `paddle-ocr-pp-ocrv4-mobile`, `paddle-ocr-pp-ocrv4-server`, `paddle-ocr-pp-ocrv4-mobile-en`.",
     "支援文字偵測和文字辨識, 並回傳文字, 信賴度, 矩形邊界和四點座標.",
     "支援 raw image 輸入, 並回報 `modelFamily`, `modelProfile`, `language` 和支援 ABI 等能力資訊.",
-    "外掛資訊, 使用說明, README 與 CHANGELOG 均支援西班牙文/法文/俄文/阿拉伯文/日文/韓文/英文/簡體中文/香港繁體/台灣繁體."
+    "外掛資訊, 使用說明, README 與 CHANGELOG 均支援西班牙文/法文/俄文/阿拉伯文/日文/韓文/英文/簡體中文/香港繁體/台灣繁體.",
+    "影像最多包含 16777216 個像素, 原始影像緩衝區上限為 64 MiB",
+    "編碼影像最大為 64 MiB, 支援檔案描述元和管線傳輸"
   ],
   "h3_profiles": "模型設定",
   "profiles": [

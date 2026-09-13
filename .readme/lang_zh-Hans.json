@@ -12,7 +12,9 @@
     "提供三个插件 ID: `paddle-ocr-pp-ocrv4-mobile`, `paddle-ocr-pp-ocrv4-server`, `paddle-ocr-pp-ocrv4-mobile-en`.",
     "支持文本检测和文本识别, 并返回文本, 置信度, 矩形边界和四点坐标.",
     "支持 raw image 输入, 并上报 `modelFamily`, `modelProfile`, `language` 和支持 ABI 等能力信息.",
-    "插件信息, 使用说明, README 与 CHANGELOG 均支持西班牙语/法语/俄语/阿拉伯语/日语/韩语/英语/简体中文/香港繁体/台湾繁体."
+    "插件信息, 使用说明, README 与 CHANGELOG 均支持西班牙语/法语/俄语/阿拉伯语/日语/韩语/英语/简体中文/香港繁体/台湾繁体.",
+    "图像最多包含 16777216 个像素, 原始图像缓冲区上限为 64 MiB",
+    "编码图像最大为 64 MiB, 支持文件描述符和管道传输"
   ],
   "h3_profiles": "模型配置",
   "profiles": [

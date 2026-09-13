@@ -54,6 +54,8 @@ El complemento AutoJs6 Paddle OCR PP-OCRv4 proporciona OCR local para AutoJs6 ba
 - Admite deteccion y reconocimiento de texto, devolviendo texto, confianza, limites rectangulares y puntos de cuadrilatero.
 - Admite entrada raw image e informa capacidades como `modelFamily`, `modelProfile`, `language` y ABI compatibles.
 - Los metadatos del complemento, las instrucciones, README y CHANGELOG estan localizados en espanol/frances/ruso/arabe/japones/coreano/ingles/chino simplificado/chino tradicional de Hong Kong/chino tradicional de Taiwan.
+- Las imágenes admiten hasta 16777216 píxeles; los búferes de imagen sin procesar se limitan a 64 MiB
+- La imagen codificada admite hasta 64 MiB mediante descriptores de archivo y tuberías
 
 ******
 
@@ -131,6 +133,15 @@ img.recycle();
 
 ******
 
+# v1.0.3
+
+###### 2026/09/13
+
+* `Correccion` La versión y las ABI del centro de complementos coinciden con el APK instalado
+* `Correccion` La imagen codificada admite hasta 64 MiB mediante descriptores de archivo y tuberías
+* `Mejora` Validación de las versiones, firmas y variantes completas de los APK antes de crear los archivos de descarga
+* `Mejora` Las imágenes admiten hasta 16777216 píxeles; los búferes de imagen sin procesar se limitan a 64 MiB
+
 # v1.0.2
 
 ###### 2026/09/12
@@ -145,24 +156,6 @@ img.recycle();
 ###### 2026/09/11
 
 * `Mejora` Verificación de compilación de la alineación de páginas de 16 KB en bibliotecas nativas de 64 bits, con controles del contrato manifest e informes JSON
-
-# v1.0.0
-
-###### 2026/09/01
-
-* `Nuevo` Servicio de complemento Paddle OCR PP-OCRv4 con motor `paddle-ocr` y variante `v4`
-* `Nuevo` Tres perfiles OCR: `mobile`, `server` y `mobile-en`, cubriendo el modelo general mobile, el modelo server de mayor precision y el modelo de reconocimiento ingles
-* `Nuevo` Descubrimiento del complemento mediante `org.autojs.plugin.PADDLE_OCR`, con llamadas `recognizeText` y `detect`
-* `Nuevo` Salida OCR con texto, confianza, limites rectangulares, puntos de cuadrilatero e informacion de tiempos
-* `Nuevo` Script de preparacion de modelos `scripts/prepare_ppocrv4_assets.py`, capaz de descargar y convertir modelos PP-OCRv4 a ONNX
-* `Nuevo` Metadatos e instrucciones del complemento localizados en espanol/frances/ruso/arabe/japones/coreano/ingles/chino simplificado/chino tradicional de Hong Kong/chino tradicional de Taiwan
-* `Nuevo` Fuente JSON y flujo de generacion por script para README y CHANGELOG
-* `Correccion` El complemento no se podía activar desde el centro de complementos después de instalarlo en algunos sistemas
-* `Mejora` Assets de modelo separados por flavor, compartiendo el modelo de deteccion entre `mobile` y `mobile-en` para que los APK no incluyan modelos de reconocimiento no relacionados
-* `Mejora` Validacion de los archivos `inference.onnx` e `inference.yml` requeridos durante el build, con comandos de preparacion correspondientes cuando faltan assets
-* `Mejora` Los nombres de APK Release incluyen version, perfil y variante ABI, con salidas `arm64-v8a`, `armeabi-v7a` y `universal`
-* `Mejora` Unificar el diseño del README y la gestión de versiones de la plataforma Gradle
-* `Dependencia` Integracion de `common-plugin-api.aar`, `paddle-ocr-api.aar`, PP-OCRv4 runtime, Paddle OCR Android SDK, OpenCV 4.8.0 y ONNX Runtime
 
 ##### Para mas historial
 
