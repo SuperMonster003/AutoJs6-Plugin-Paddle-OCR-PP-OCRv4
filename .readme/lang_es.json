@@ -12,7 +12,9 @@
     "Proporciona tres ID de complemento: `paddle-ocr-pp-ocrv4-mobile`, `paddle-ocr-pp-ocrv4-server`, `paddle-ocr-pp-ocrv4-mobile-en`.",
     "Admite deteccion y reconocimiento de texto, devolviendo texto, confianza, limites rectangulares y puntos de cuadrilatero.",
     "Admite entrada raw image e informa capacidades como `modelFamily`, `modelProfile`, `language` y ABI compatibles.",
-    "Los metadatos del complemento, las instrucciones, README y CHANGELOG estan localizados en espanol/frances/ruso/arabe/japones/coreano/ingles/chino simplificado/chino tradicional de Hong Kong/chino tradicional de Taiwan."
+    "Los metadatos del complemento, las instrucciones, README y CHANGELOG estan localizados en espanol/frances/ruso/arabe/japones/coreano/ingles/chino simplificado/chino tradicional de Hong Kong/chino tradicional de Taiwan.",
+    "Las imágenes admiten hasta 16777216 píxeles; los búferes de imagen sin procesar se limitan a 64 MiB",
+    "La imagen codificada admite hasta 64 MiB mediante descriptores de archivo y tuberías"
   ],
   "h3_profiles": "Perfiles",
   "profiles": [

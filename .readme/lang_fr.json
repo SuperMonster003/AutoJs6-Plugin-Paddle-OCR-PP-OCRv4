@@ -12,7 +12,9 @@
     "Fournit trois ID de plugin: `paddle-ocr-pp-ocrv4-mobile`, `paddle-ocr-pp-ocrv4-server`, `paddle-ocr-pp-ocrv4-mobile-en`.",
     "Prend en charge la detection et la reconnaissance de texte, avec texte, confiance, limites rectangulaires et points quadrilateres.",
     "Prend en charge l'entree raw image et annonce des capacites comme `modelFamily`, `modelProfile`, `language` et les ABI pris en charge.",
-    "Les metadonnees du plugin, les instructions, README et CHANGELOG sont localises en espagnol/francais/russe/arabe/japonais/coreen/anglais/chinois simplifie/chinois traditionnel de Hong Kong/chinois traditionnel de Taiwan."
+    "Les metadonnees du plugin, les instructions, README et CHANGELOG sont localises en espagnol/francais/russe/arabe/japonais/coreen/anglais/chinois simplifie/chinois traditionnel de Hong Kong/chinois traditionnel de Taiwan.",
+    "Les images peuvent contenir jusqu'à 16777216 pixels; les tampons bruts sont limités à 64 MiB",
+    "Les images encodées sont limitées à 64 MiB avec prise en charge des fichiers et des tubes"
   ],
   "h3_profiles": "Profils",
   "profiles": [
