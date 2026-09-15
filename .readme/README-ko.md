@@ -133,6 +133,12 @@ img.recycle();
 
 ******
 
+# v1.0.4
+
+###### 2026/09/15
+
+* `개선` compileSdk 와 targetSdk 를 37 (Android 17) 로 올리며, 플러그인 동작은 새 대상 버전의 영향을 받지 않음
+
 # v1.0.3
 
 ###### 2026/09/13
@@ -153,12 +159,6 @@ img.recycle();
 * `수정` 일부 Gradle/AGP 조합에서 Kotlin 소스가 컴파일되지 않거나 `WakeActivity` 중복 정의로 빌드가 실패하는 문제
 * `개선` OpenCV 4.8.0 네이티브 라이브러리를 NDK r28c (Clang 19.0.1) 재빌드 버전으로 동기화 (donor: AutoJs6-Plugin-OpenCV); 4개 ABI의 `libopencv_java4.so`는 16 KB `PT_LOAD` 정렬을 유지하며 provenance 매니페스트를 포함
 
-# v1.0.1
-
-###### 2026/09/11
-
-* `개선` 64비트 네이티브 라이브러리의 16 KB 페이지 정렬을 빌드 시 검증, manifest 계약 검사 및 JSON 보고서 지원
-
 ##### 더 많은 릴리스 기록
 
 * [전체 릴리스 기록](https://github.com/SuperMonster003/AutoJs6-Plugin-Paddle-OCR-PP-OCRv4/blob/master/app/src/main/assets/doc/CHANGELOG-ko.md)
@@ -175,7 +175,7 @@ img.recycle();
 .\gradlew.bat :app:assembleMobileEnRelease
 ```
 
-빌드 매개변수는 주로 `version.properties` 에서 가져오며, app 은 현재 min SDK 26 과 target SDK 36 을 사용합니다.
+빌드 매개변수는 주로 `version.properties` 에서 가져오며, app 은 현재 min SDK 26 과 target SDK 37 을 사용합니다.
 
 Gradle 빌드는 assets 병합 전에 필요한 `inference.onnx` 와 `inference.yml` 파일을 검증하며, 파일이 없으면 해당 모델 준비 명령을 표시합니다.
 

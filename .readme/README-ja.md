@@ -133,6 +133,12 @@ img.recycle();
 
 ******
 
+# v1.0.4
+
+###### 2026/09/15
+
+* `改善` compileSdk と targetSdk を 37 (Android 17) に引き上げ, プラグインの動作は新しいターゲットの影響を受けない
+
 # v1.0.3
 
 ###### 2026/09/13
@@ -153,12 +159,6 @@ img.recycle();
 * `修正` 一部の Gradle/AGP の組み合わせで Kotlin ソースがコンパイルされず, `WakeActivity` の重複定義によりビルドが失敗する問題
 * `改善` OpenCV 4.8.0 ネイティブライブラリを NDK r28c (Clang 19.0.1) 再ビルド版に同期 (donor: AutoJs6-Plugin-OpenCV); 4 つの ABI の `libopencv_java4.so` は 16 KB `PT_LOAD` アラインメントを維持し provenance マニフェストを同梱
 
-# v1.0.1
-
-###### 2026/09/11
-
-* `改善` 64 ビットのネイティブライブラリの 16 KB ページアラインメントをビルド時に検証, manifest 契約の検査と JSON レポートに対応
-
 ##### さらに詳しいリリース履歴
 
 * [完全なリリース履歴](https://github.com/SuperMonster003/AutoJs6-Plugin-Paddle-OCR-PP-OCRv4/blob/master/app/src/main/assets/doc/CHANGELOG-ja.md)
@@ -175,7 +175,7 @@ img.recycle();
 .\gradlew.bat :app:assembleMobileEnRelease
 ```
 
-ビルドパラメータは主に `version.properties` から取得され, app は現在 min SDK 26 と target SDK 36 を使用します.
+ビルドパラメータは主に `version.properties` から取得され, app は現在 min SDK 26 と target SDK 37 を使用します.
 
 Gradle ビルドは assets をマージする前に必要な `inference.onnx` と `inference.yml` ファイルを検証し, 不足している場合は対応するモデル準備コマンドを表示します.
 

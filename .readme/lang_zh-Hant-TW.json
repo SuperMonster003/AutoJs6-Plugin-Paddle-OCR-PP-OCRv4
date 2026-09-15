@@ -31,7 +31,7 @@
   "h5_for_more_release_history": "更多發行歷史可參閱",
   "text_changelog_link_label": "完整發行歷史",
   "h3_build": "建置",
-  "p_build_params": "建置參數主要來自 `version.properties`, app 目前最低 SDK 為 26, 目標 SDK 為 36",
+  "p_build_params": "建置參數主要來自 `version.properties`, app 目前最低 SDK 為 26, 目標 SDK 為 37",
   "p_build_validation": "Gradle 建置會在合併 assets 前校驗所需 `inference.onnx` 和 `inference.yml` 檔案, 缺失時會提示對應的模型準備命令",
   "h3_resource_layout": "資源結構",
   "p_resource_layout": "`strings.xml` 提供外掛描述在地化; `plugin_instruction.md` 提供宿主側展示的外掛使用說明. README 與 CHANGELOG 由 `.python/generate_markdown.py` 根據 JSON 來源檔案生成",

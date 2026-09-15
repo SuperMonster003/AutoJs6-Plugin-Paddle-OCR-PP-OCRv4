@@ -31,7 +31,7 @@
   "h5_for_more_release_history": "Pour plus d'historique",
   "text_changelog_link_label": "Historique complet",
   "h3_build": "Build",
-  "p_build_params": "Les parametres de build proviennent principalement de `version.properties`, tandis que l'app utilise actuellement min SDK 26 et target SDK 36",
+  "p_build_params": "Les parametres de build proviennent principalement de `version.properties`, tandis que l'app utilise actuellement min SDK 26 et target SDK 37",
   "p_build_validation": "Le build Gradle valide les fichiers `inference.onnx` et `inference.yml` requis avant de fusionner les assets, et affiche la commande de preparation correspondante si un fichier manque",
   "h3_resource_layout": "Structure Des Ressources",
   "p_resource_layout": "`strings.xml` fournit les descriptions localisees du plugin; `plugin_instruction.md` fournit les instructions du plugin cote hote. README et CHANGELOG sont generes par `.python/generate_markdown.py` depuis les fichiers source JSON",

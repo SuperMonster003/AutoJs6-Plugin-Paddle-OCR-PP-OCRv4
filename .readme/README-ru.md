@@ -133,6 +133,12 @@ img.recycle();
 
 ******
 
+# v1.0.4
+
+###### 2026/09/15
+
+* `Улучшено` Подняты compileSdk и targetSdk до 37 (Android 17); поведение плагина не зависит от нового целевого уровня
+
 # v1.0.3
 
 ###### 2026/09/13
@@ -153,12 +159,6 @@ img.recycle();
 * `Исправлено` Сбои сборки при некоторых сочетаниях Gradle/AGP из-за некомпилируемых исходников Kotlin или повторных определений `WakeActivity`
 * `Улучшено` Нативная библиотека OpenCV 4.8.0 синхронизирована с пересборкой NDK r28c (Clang 19.0.1) (донор: AutoJs6-Plugin-OpenCV); `libopencv_java4.so` для всех 4 ABI сохраняет выравнивание `PT_LOAD` 16 КБ и поставляется с манифестом provenance
 
-# v1.0.1
-
-###### 2026/09/11
-
-* `Улучшено` Проверка выравнивания страниц 16 KB для 64-битных нативных библиотек при сборке, включая контракт manifest и отчеты JSON
-
 ##### Более полная история выпусков
 
 * [Полная история выпусков](https://github.com/SuperMonster003/AutoJs6-Plugin-Paddle-OCR-PP-OCRv4/blob/master/app/src/main/assets/doc/CHANGELOG-ru.md)
@@ -175,7 +175,7 @@ img.recycle();
 .\gradlew.bat :app:assembleMobileEnRelease
 ```
 
-Параметры сборки в основном берутся из `version.properties`, а app сейчас использует min SDK 26 и target SDK 36.
+Параметры сборки в основном берутся из `version.properties`, а app сейчас использует min SDK 26 и target SDK 37.
 
 Сборка Gradle проверяет необходимые файлы `inference.onnx` и `inference.yml` перед слиянием assets, и показывает подходящую команду подготовки моделей, если файл отсутствует.
 

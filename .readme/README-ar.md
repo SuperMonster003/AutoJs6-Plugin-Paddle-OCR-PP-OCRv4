@@ -133,6 +133,12 @@ img.recycle();
 
 ******
 
+# v1.0.4
+
+###### 2026/09/15
+
+* `تحسين` رفع compileSdk و targetSdk إلى 37 (Android 17)؛ لا يعتمد سلوك المكون الإضافي على الهدف الجديد
+
 # v1.0.3
 
 ###### 2026/09/13
@@ -153,12 +159,6 @@ img.recycle();
 * `اصلاح` تعذر البناء مع بعض توليفات Gradle/AGP بسبب عدم تجميع مصادر Kotlin أو تكرار تعريف `WakeActivity`
 * `تحسين` مزامنة مكتبة OpenCV 4.8.0 الأصلية مع إعادة بناء NDK r28c (Clang 19.0.1) (المصدر: AutoJs6-Plugin-OpenCV); تحافظ `libopencv_java4.so` لجميع ABI الأربعة على محاذاة `PT_LOAD` بحجم 16 كيلوبايت وتأتي مع بيان provenance
 
-# v1.0.1
-
-###### 2026/09/11
-
-* `تحسين` التحقق أثناء البناء من محاذاة صفحات 16 KB للمكتبات الأصلية ذات 64 بت, مع فحص عقد manifest وتقارير JSON
-
 ##### لمزيد من سجل الاصدارات
 
 * [سجل الاصدارات الكامل](https://github.com/SuperMonster003/AutoJs6-Plugin-Paddle-OCR-PP-OCRv4/blob/master/app/src/main/assets/doc/CHANGELOG-ar.md)
@@ -175,7 +175,7 @@ img.recycle();
 .\gradlew.bat :app:assembleMobileEnRelease
 ```
 
-تاتي معلمات البناء اساسا من `version.properties`, بينما يستخدم app حاليا min SDK 26 و target SDK 36.
+تاتي معلمات البناء اساسا من `version.properties`, بينما يستخدم app حاليا min SDK 26 و target SDK 37.
 
 يتحقق Gradle build من ملفات `inference.onnx` و `inference.yml` المطلوبة قبل دمج assets, ويعرض امر تحضير النموذج المناسب اذا كان اي ملف مفقودا.
 

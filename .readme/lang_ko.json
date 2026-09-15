@@ -31,7 +31,7 @@
   "h5_for_more_release_history": "더 많은 릴리스 기록",
   "text_changelog_link_label": "전체 릴리스 기록",
   "h3_build": "빌드",
-  "p_build_params": "빌드 매개변수는 주로 `version.properties` 에서 가져오며, app 은 현재 min SDK 26 과 target SDK 36 을 사용합니다",
+  "p_build_params": "빌드 매개변수는 주로 `version.properties` 에서 가져오며, app 은 현재 min SDK 26 과 target SDK 37 을 사용합니다",
   "p_build_validation": "Gradle 빌드는 assets 병합 전에 필요한 `inference.onnx` 와 `inference.yml` 파일을 검증하며, 파일이 없으면 해당 모델 준비 명령을 표시합니다",
   "h3_resource_layout": "리소스 구조",
   "p_resource_layout": "`strings.xml` 은 현지화된 플러그인 설명을 제공하고; `plugin_instruction.md` 는 호스트 측에 표시되는 플러그인 사용 설명을 제공합니다. README 와 CHANGELOG 는 JSON 소스 파일에서 `.python/generate_markdown.py` 로 생성됩니다",
