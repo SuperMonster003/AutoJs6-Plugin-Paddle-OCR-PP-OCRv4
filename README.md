@@ -133,6 +133,12 @@ img.recycle();
 
 ******
 
+# v1.0.4
+
+###### 2026/09/15
+
+* `优化` 将 compileSdk 与 targetSdk 提升到 37 (Android 17), 插件行为不受新目标版本影响
+
 # v1.0.3
 
 ###### 2026/09/13
@@ -153,12 +159,6 @@ img.recycle();
 * `修复` 部分 Gradle/AGP 组合下 Kotlin 源码未参与编译, 以及重复定义 `WakeActivity` 导致的构建失败
 * `优化` 同步 OpenCV 4.8.0 原生库至 NDK r28c (Clang 19.0.1) 重编版本 (donor: AutoJs6-Plugin-OpenCV), 4 个 ABI 的 `libopencv_java4.so` 保持 16 KB `PT_LOAD` 对齐并附带 provenance 清单
 
-# v1.0.1
-
-###### 2026/09/11
-
-* `优化` 构建阶段校验 64 位原生库的 16 KB 页大小对齐, 检查 manifest 契约并输出 JSON 报告
-
 ##### 更多发行历史可参阅
 
 * [完整发行历史](https://github.com/SuperMonster003/AutoJs6-Plugin-Paddle-OCR-PP-OCRv4/blob/master/app/src/main/assets/doc/CHANGELOG-zh-Hans.md)
@@ -175,7 +175,7 @@ img.recycle();
 .\gradlew.bat :app:assembleMobileEnRelease
 ```
 
-构建参数主要来自 `version.properties`, app 当前最低 SDK 为 26, 目标 SDK 为 36.
+构建参数主要来自 `version.properties`, app 当前最低 SDK 为 26, 目标 SDK 为 37.
 
 Gradle 构建会在合并 assets 前校验所需 `inference.onnx` 和 `inference.yml` 文件, 缺失时会提示对应的模型准备命令.
 

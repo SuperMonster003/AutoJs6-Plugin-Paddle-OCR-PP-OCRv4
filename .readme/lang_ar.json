@@ -31,7 +31,7 @@
   "h5_for_more_release_history": "لمزيد من سجل الاصدارات",
   "text_changelog_link_label": "سجل الاصدارات الكامل",
   "h3_build": "البناء",
-  "p_build_params": "تاتي معلمات البناء اساسا من `version.properties`, بينما يستخدم app حاليا min SDK 26 و target SDK 36",
+  "p_build_params": "تاتي معلمات البناء اساسا من `version.properties`, بينما يستخدم app حاليا min SDK 26 و target SDK 37",
   "p_build_validation": "يتحقق Gradle build من ملفات `inference.onnx` و `inference.yml` المطلوبة قبل دمج assets, ويعرض امر تحضير النموذج المناسب اذا كان اي ملف مفقودا",
   "h3_resource_layout": "هيكل الموارد",
   "p_resource_layout": "يوفر `strings.xml` اوصاف الملحق المترجمة; ويوفر `plugin_instruction.md` تعليمات الملحق المعروضة في المضيف. يتم توليد README و CHANGELOG بواسطة `.python/generate_markdown.py` من ملفات JSON المصدر",

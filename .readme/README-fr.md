@@ -133,6 +133,12 @@ img.recycle();
 
 ******
 
+# v1.0.4
+
+###### 2026/09/15
+
+* `Amelioration` compileSdk et targetSdk passent à 37 (Android 17) ; le comportement du plugin ne dépend pas de la nouvelle cible
+
 # v1.0.3
 
 ###### 2026/09/13
@@ -153,12 +159,6 @@ img.recycle();
 * `Correction` Échecs de compilation avec certaines combinaisons Gradle/AGP dus aux sources Kotlin non compilées ou aux définitions en double de `WakeActivity`
 * `Amelioration` Bibliothèque native OpenCV 4.8.0 synchronisée avec la recompilation NDK r28c (Clang 19.0.1) (donneur : AutoJs6-Plugin-OpenCV) ; `libopencv_java4.so` des 4 ABI conserve l'alignement `PT_LOAD` de 16 Ko et embarque un manifeste de provenance
 
-# v1.0.1
-
-###### 2026/09/11
-
-* `Amelioration` Vérification à la compilation de l'alignement des pages de 16 KB des bibliothèques natives 64 bits, avec contrôle du contrat manifest et rapports JSON
-
 ##### Pour plus d'historique
 
 * [Historique complet](https://github.com/SuperMonster003/AutoJs6-Plugin-Paddle-OCR-PP-OCRv4/blob/master/app/src/main/assets/doc/CHANGELOG-fr.md)
@@ -175,7 +175,7 @@ img.recycle();
 .\gradlew.bat :app:assembleMobileEnRelease
 ```
 
-Les parametres de build proviennent principalement de `version.properties`, tandis que l'app utilise actuellement min SDK 26 et target SDK 36.
+Les parametres de build proviennent principalement de `version.properties`, tandis que l'app utilise actuellement min SDK 26 et target SDK 37.
 
 Le build Gradle valide les fichiers `inference.onnx` et `inference.yml` requis avant de fusionner les assets, et affiche la commande de preparation correspondante si un fichier manque.
 
