@@ -127,7 +127,7 @@ class PpOcrV4PluginService : Service() {
     }
 
     private companion object {
-        val SUPPORTED_ABIS = arrayOf("arm64-v8a", "armeabi-v7a")
+        val SUPPORTED_ABIS = arrayOf("arm64-v8a", "armeabi-v7a", "x86", "x86_64")
         const val CAPABILITY_SUPPORTS_PP_OCR_V4 = "supportsPpOcrV4"
         const val CAPABILITY_MODEL_FAMILY = "modelFamily"
         const val CAPABILITY_MODEL_PROFILE = "modelProfile"
