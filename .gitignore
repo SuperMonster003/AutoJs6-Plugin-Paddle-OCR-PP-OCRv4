@@ -50,3 +50,7 @@ __pycache__/
 *.pre-platform-versions.bak
 /releases/
 **/__pycache__/
+
+# Local agent instruction files stay out of the repository.
+AGENTS.md
+CLAUDE.md
